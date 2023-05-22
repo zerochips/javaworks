@@ -1,0 +1,26 @@
+package home1;
+
+import java.util.Scanner;
+
+public class LeafYear {
+
+	public static void main(String[] args) {
+		// 윤년을 판별하는 프로그램
+		// 4년 마다 오고 100년 단위는 윤년이 아니나, 400년 단위는 윤년이다
+		// year % 4 == 0 && year % 100 != 0 || year % 400 == 0
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("년도를 입력하세요> ");
+		int year = sc.nextInt();
+		
+		// if문
+		if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+			System.out.printf("%d년은 윤년입니다.", year);
+		}else {
+			System.out.printf("%d년은 평년입니다.", year);		
+		}
+		
+		// 출력
+		sc.close();
+	}
+}
