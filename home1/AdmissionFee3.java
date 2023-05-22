@@ -59,7 +59,7 @@ public class AdmissionFee3 {
 	                    break;
 	                }
             } // 두번째 while
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             System.out.println("잘못 입력하셨습니다.\n다시 입력해주세요.");
             sc.nextLine(); // 입력 버퍼 비우기
         }
