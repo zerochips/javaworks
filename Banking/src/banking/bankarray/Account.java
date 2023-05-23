@@ -1,5 +1,7 @@
 package banking.bankarray;
 
+//배열을 이해하고 복습할것!!!!!
+
 public class Account {
 	private String ano;		// 계좌 번호
 	private String owner;	// 계좌주
@@ -20,6 +22,13 @@ public class Account {
 	public String getOwner() {
 		return owner;
 	}
+	
+	// 잔고를 저장하는 메서드
+	public void setbalance(int balance) {
+		this.balance = balance;
+	}
+	
+	
 	
 	public int getBalance() {
 		return balance;

@@ -2,7 +2,7 @@ package banking.bankarray;
 
 import java.util.Scanner;
 
-public class BankMain {
+public class BankMain2 {
 	
 	// 배열을 이해하고 복습할것!!!!!
 	
@@ -34,8 +34,7 @@ public class BankMain {
 			
 			if(selectNo == 1) {
 				creatAccount();		// 계좌 생성
-			}else if(selectNo == 2) {
-				
+			}else if(selectNo == 2) {				
 				getAccountList();	// 계좌 목록			
 			}else if(selectNo == 3) {
 				deposit();			//예금
@@ -59,27 +58,32 @@ public class BankMain {
 		System.out.println("계좌생성");
 		System.out.println("-------------------------------------------");
 		
-		System.out.print("계좌번호: ");
-		String ano = scanner.nextLine();
-		
-		System.out.print("계좌주: ");
-		String owner = scanner.nextLine();
-		
-		System.out.print("초기입금액: ");
-		int balance = Integer.parseInt(scanner.nextLine());
-		
-		// 첫번째 계좌 생성
-		//accountArray[0] = new Account(ano, owner, balance); 
-		for(int i =0; i < accountArray.length; i++) {			// 전체 배열을 반복하면서
-			//0번 인덱스가 새로 수정되는 문제 해결
-			// null 일때만 새 계좌가 생성된다
-			if( accountArray[i] == null) {	// 계좌가 저장되지 않는 인덱스에 저장 - null일때만 계좌가 생성되니까 이미 생성된 계좌가 있으면 지워지지 않음(대체되지 않음)
-				accountArray[i] = new Account(ano, owner, balance);	// 계좌를 생성			
-				System.out.println("결과: 계좌가 생성되었습니다.");	
-				break;
-			}
+		while(true) {
+			System.out.print("계좌번호: ");
+			String ano = scanner.nextLine();
 			
-		}		
+			// 첫번째 계좌 생성
+			//accountArray[0] = new Account(ano, owner, balance); 
+			if(findAccount(ano) != null) {		// 계좌 계정이 이미 있다면 (계좌번호 중복)
+				System.out.println("중복 계정입니다.");
+			}else {
+				System.out.print("계좌주: ");
+				String owner = scanner.nextLine();
+				
+				System.out.print("초기입금액: ");
+				int balance = Integer.parseInt(scanner.nextLine());
+				for(int i =0; i < accountArray.length; i++) {	// 전체 배열을 반복하면서
+					//0번 인덱스가 새로 수정되는 문제 해결
+					// null 일때만 새 계좌가 생성된다
+					if( accountArray[i] == null) {	// 계좌가 저장되지 않는 인덱스에 저장 - null일때만 계좌가 생성되니까 이미 생성된 계좌가 있으면 지워지지 않음(대체되지 않음)
+						accountArray[i] = new Account(ano, owner, balance);	// 계좌를 생성				
+						System.out.println("결과: 계좌가 생성되었습니다.");	
+						break;	// 계좌 생성후 빠져나옴		
+					}
+				}
+				break;	// 중복 계좌에서 break; // 정상적으로 계좌 생성 빠져 나옴
+			} //if ~ else 끝
+		}// 내부 while
 	}
 	
 	// 계좌 목록을 출력하는 메서드
@@ -100,53 +104,64 @@ public class BankMain {
 	// 3번 - 계좌에 입금하는 메서드
 	private static void deposit() {
 		System.out.println("-------------------------------------------");
-		System.out.println("계좌생성");
+		System.out.println("입금");
 		System.out.println("-------------------------------------------");
 		
-		System.out.print("계좌번호: ");
-		String ano = scanner.nextLine();
-		
-		System.out.print("입금액: ");
-		int money = Integer.parseInt(scanner.nextLine());
-		
-		// 입금이 잘 되는지 보겠습니다.
-		if(findAccount(ano) != null) {	// 계좌를 찾았다면(반환값이 있다면)
-			//예금 = 잔고 + 예금액
-			Account account = findAccount(ano);
-			account.setbalance(account.getBalance() + money);
-			System.out.println("결과: 정상처리 되었습니다.");
-		}else{
-			// 여기는 null일때
-			System.out.println("결과: 계좌가 없습니다.");
+		while(true) {
+			System.out.print("계좌번호: ");
+			String ano = scanner.nextLine();
+			
+			if(findAccount(ano) != null) {
+				System.out.print("입금액: ");
+				int money = Integer.parseInt(scanner.nextLine());
+				
+				// 입금이 잘 되는지 보겠습니다.
+				// 계좌를 찾았다면(반환값이 있다면)
+				//예금 = 잔고 + 예금액
+				Account account = findAccount(ano);
+				account.setbalance(account.getBalance() + money);
+				System.out.println("결과: 정상처리 되었습니다.");
+				break;
+			}else{
+				// 여기는 null일때
+				System.out.println("결과: 계좌가 없습니다.");
+			}
 		}		
-	}
-	
-	
+	}	
 	
 	// 4번 - 계좌에서 출금하는 메서드
 	private static void withdraw() {
 		System.out.println("-------------------------------------------");
-		System.out.println("계좌생성");
+		System.out.println("출금");
 		System.out.println("-------------------------------------------");
 		
-		System.out.print("계좌번호: ");
-		String ano = scanner.nextLine();
-		
-		System.out.print("출금액: ");
-		int money = Integer.parseInt(scanner.nextLine());
-		
-		// 입금이 잘 되는지 보겠습니다.
-		if(findAccount(ano) != null) {	// 계좌를 찾았다면(반환값이 있다면)
-			//출금 = 잔고 - 예금액
-			Account account = findAccount(ano);
-			account.setbalance(account.getBalance() - money);
-			System.out.println("결과: 정상처리 되었습니다.");
-		}else{
-			// 여기는 null일때
-			System.out.println("결과: 계좌가 없습니다.");
-		}		
-	}
-		
+		while(true) {
+			System.out.print("계좌번호: ");
+			String ano = scanner.nextLine();
+			
+			// 입금이 잘 되는지 보겠습니다.
+			if(findAccount(ano) != null) {	// 계좌를 찾았다면(반환값이 있다면)
+				while(true) {
+					System.out.print("출금액: ");
+					
+					Account account = findAccount(ano);
+					int money = Integer.parseInt(scanner.nextLine());
+					
+					if(money > account.getBalance()) {
+						System.out.println("잔액 부족");
+					}else {
+						//
+						account.setbalance(account.getBalance() - money);
+						System.out.println("결과: 정상 처리 되었습니다.");
+						break;
+					}
+				}// 내부 while 끝
+				break;	// 정상 처리후 빠져나옴
+			}else {
+				System.out.println("결과: 계좌가 없습니다.\n다시 입력해 주세요.");
+			}
+		}//외부 while 끝
+		}
 	
 	// 계좌를 검색하는 메서드
 	// 반환자료 형태 Account 를 

@@ -4,19 +4,20 @@ public class Book {
 	String bookName;
 	String author;
 	
-	Book(){}	// 기본 생성자
+	
+	public Book(){}	// 기본 생성자
 	
 	
 	// 매개 변수가 있는 생성자생성자
-	Book(String bookName, String author){
+	public Book(String bookName, String author){
 		this.bookName = bookName;
 		this.author = author;
 	}
-	
+	 
 	
 	// 이제 함수 만들어야 됩니다.
 	// 출력 자료형 만들었어요
-	void bookInfo() {
+	public void bookInfo() {
 		System.out.println(bookName + ", " + author);
 	}
 	
