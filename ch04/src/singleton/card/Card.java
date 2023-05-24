@@ -1,4 +1,4 @@
-package statics;
+package singleton.card;
 
 public class Card {
 	static int serialNum = 100; //값을 계속 공유할 수 있게 // static을 넣으면 정적변수, static 변수라고 말합니다. 값을 누적하고 공유하고 있기 때문에 계속 증가하는거죠 
@@ -21,3 +21,5 @@ public class Card {
 	}
 
 }
+
+// static 패키지에서 복사해온 클래스입니다
