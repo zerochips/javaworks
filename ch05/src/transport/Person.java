@@ -1,4 +1,4 @@
-package taketrans;
+package transport;
 
 // 사람 클래스(참조 자료형)
 public class Person {
@@ -15,23 +15,17 @@ public class Person {
 		this.money = money;
 	}
 	
-	//************** [버스]를 타는 기능을 하는 메서드 **************
-	// 매개변수에는 - 자료형과, 변수이름이 들어가죠
-	void takeBus(Bus bus) {
-		bus.take(1300);		// 1300원 매개로 전달
-		this.money -= 1300;	// 1300원 차감
-	}
-	
-	//************** [지하철]을 타다 **************
-	void takeSubwya(Subway subway) {
-		subway.take(1250);		// 1300원 매개로 전달
-		this.money -= 1250;		// 1300원 차감
+	// 요금을 내고 교통수단을 이용하는 메서드
+	// Vehicle vehicle -> 상속과 다형성 이용
+	public void take(Vehicle vehicle, int fee) {
+		vehicle.carry(fee);
+		this.money -= fee; 	// 가진돈에서 요금만큼 차감
 	}
 	
 	// 정보 출력
 	// 사람의 정보
 	void showInfo() {
-		System.out.printf("%s님의 남은 돈은 %,d원입니다.", 
+		System.out.printf("%s님의 남은 돈은 %,d원입니다.\n", 
 				name, money);
 	}
 	
