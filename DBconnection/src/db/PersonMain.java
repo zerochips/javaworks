@@ -11,8 +11,8 @@ public class PersonMain {
 		
 		
 		// *************** [ 자료 삽입 ] ***************
-		Person person1 = new Person("sky", "sky1234", "강하늘", 30);
-		//dao.insertPerson(person1);
+		Person person1 = new Person("test", "test1234", "tester", 30);
+		//dao.insertPerson(person1);	//
 		
 		
 		// *************** [ 자료 1개 검색 ] ***************		
@@ -24,6 +24,22 @@ public class PersonMain {
 		
 		System.out.printf("아이디: %s, 비밀번호: %s, 이름: %s, 나이: %d\n",
 				userId, userPw, name, age);
+		
+				
+		// *************** [ 자료 삭제 ] ***************	
+		//dao.deletePerson("test");
+				
+		
+		// *************** [ 자료 수정 ] ***************
+		// 아이디 'cloud'인 사람 검색 - 아이디 검색 후 변경 자료 입력한 후 수정함
+		Person cloud = dao.getPerson("cloud");
+		// 변경 자료 입력
+		cloud.setName("클라우드");
+		cloud.setAge(50);
+		
+		// 수정
+		//dao.updatePerson(cloud);
+		
 		
 		System.out.println("==================================================");
 		
@@ -40,7 +56,7 @@ public class PersonMain {
 			
 			System.out.printf("아이디: %s, 비밀번호: %s, 이름: %s, 나이: %d\n",
 					userId, userPw, name, age);
-		}	*/
+		}*/
 		
 
 	}

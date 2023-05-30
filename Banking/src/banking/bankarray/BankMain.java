@@ -113,7 +113,7 @@ public class BankMain {
 		if(findAccount(ano) != null) {	// 계좌를 찾았다면(반환값이 있다면)
 			//예금 = 잔고 + 예금액
 			Account account = findAccount(ano);
-			account.setbalance(account.getBalance() + money);
+			account.setBalance(account.getBalance() + money);
 			System.out.println("결과: 정상처리 되었습니다.");
 		}else{
 			// 여기는 null일때
@@ -139,7 +139,7 @@ public class BankMain {
 		if(findAccount(ano) != null) {	// 계좌를 찾았다면(반환값이 있다면)
 			//출금 = 잔고 - 예금액
 			Account account = findAccount(ano);
-			account.setbalance(account.getBalance() - money);
+			account.setBalance(account.getBalance() - money);
 			System.out.println("결과: 정상처리 되었습니다.");
 		}else{
 			// 여기는 null일때

@@ -24,7 +24,7 @@ public class Account {
 	}
 	
 	// 잔고를 저장하는 메서드
-	public void setbalance(int balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 	
@@ -33,6 +33,7 @@ public class Account {
 	public int getBalance() {
 		return balance;
 	}
+
 	
 
 }

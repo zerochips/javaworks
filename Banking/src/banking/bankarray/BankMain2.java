@@ -119,7 +119,7 @@ public class BankMain2 {
 				// 계좌를 찾았다면(반환값이 있다면)
 				//예금 = 잔고 + 예금액
 				Account account = findAccount(ano);
-				account.setbalance(account.getBalance() + money);
+				account.setBalance(account.getBalance() + money);
 				System.out.println("결과: 정상처리 되었습니다.");
 				break;
 			}else{
@@ -151,7 +151,7 @@ public class BankMain2 {
 						System.out.println("잔액 부족");
 					}else {
 						//
-						account.setbalance(account.getBalance() - money);
+						account.setBalance(account.getBalance() - money);
 						System.out.println("결과: 정상 처리 되었습니다.");
 						break;
 					}
