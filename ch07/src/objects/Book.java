@@ -11,11 +11,21 @@ public class Book {
 		this.bookNumber = bookNumber;
 		this.bookTitle = bookTitle;
 	}
-
+	
+	/*public void showInfo() {
+		System.out.println(bookNumber + ", " + bookTitle);
+	}*/
+	
 	// toString() 재정의
 	@Override
 	public String toString() {
 		return bookNumber + ", " + bookTitle;
+	}
+	
+	// hashCode() 재정의
+	@Override
+	public int hashCode() {
+		return bookNumber;	//해시코드 반환값과 같은 의미 - 무조건 int로 나가는 겁니다 String bookNumber 라면 
 	}
 
 	// equals() 재정의
@@ -32,15 +42,6 @@ public class Book {
 		}
 		return false;
 	}
-
-	
-	// hashCode() 재정의
-	@Override
-	public int hashCode() {
-		return bookNumber;	//해시코드 반환값과 같은 의미 - 무조건 int로 나가는 겁니다 String bookNumber 라면 
-	}
-	
-	
 	
 	
 }
