@@ -14,7 +14,7 @@ public class Circle implements Cloneable{
 	// public showInfo() 대신
 	@Override
 	public String toString() {
-		return "중심점은 " + center + "이고, 반지름은 "+ radius + "입니다.";
+		return "중심점은 " + center + "이고, 반지름은 "+ radius + "입니다."; 
 		
 	}
 

@@ -19,6 +19,6 @@ public class StringCharAt {
 		default:
 			System.out.println("지원되지 않는 기능입니다.");
 		}
-	}
+	} 
 
 }

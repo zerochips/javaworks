@@ -21,7 +21,7 @@ public class ClassTest {
 		for(Constructor<?> con : cons) {
 			System.out.println(con);
 		}
-		System.out.println();
+		System.out.println(); 
 		
 		System.out.println("**** 필드 정보 ****");
 		Field[] fields = class1.getDeclaredFields();
