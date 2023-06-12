@@ -1,6 +1,4 @@
 hello~
 안녕
-66
-C
-smile
+BCsmile
 mile
