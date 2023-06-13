@@ -24,7 +24,7 @@ public class ReaderTest2 {
 				fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}	
+			}
 		}		
 	}
 

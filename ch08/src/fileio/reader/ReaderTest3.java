@@ -22,3 +22,9 @@ public class ReaderTest3 {
 	}
 
 }
+/*
+문자열 - String 읽기
+기반스트림 - FileReader - 문자형
+보조스트림 - BufferedReader 6월 13일(화) 부터 배움 
+ */
+ 

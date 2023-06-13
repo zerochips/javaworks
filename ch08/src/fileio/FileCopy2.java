@@ -9,8 +9,8 @@ public class FileCopy2 {
 
 	public static void main(String[] args) {
 		// 이미지 파일을 읽고 쓰기(복사)
-		String originFile = "c:/file/bg1.jpg";	// 원본 파일
-		String copyFile = "c:/file/bg3.jpg";	// 사본 파일
+		String originFile = "c:/file/ojdbc8.jar";	// 원본 파일
+		String copyFile = "c:/file/ojdbc8-1.jar";	// 사본 파일 - 파일 복사 소요시간: 15200ms
 		long start = 0, end = 0;
 		
 		try(FileInputStream fis = new FileInputStream(originFile);
@@ -31,3 +31,4 @@ public class FileCopy2 {
 	}//main 끝
 }
 //파일 복사
+// buffered를 사용하면 1/100로 줄어드는 효과를 확인할 수 있다 / 100배 빠르다
